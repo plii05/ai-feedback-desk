@@ -1,46 +1,47 @@
-# 模型评估与产品决策
+# Model evaluation and product decisions
 
-## 判断标准
+[简体中文](evaluation.zh-CN.md)
 
-两条 Issue 可以归入同一主题，条件是涉及的功能、触发路径和用户可见现象有足够重合，可以交给同一个验证动作处理。描述宽泛或现象可区分时，标为单独主题。主题参考标注由一位标注者根据标题和公开原文整理，存在主观边界。
+## Reference labels
 
-样本从 PowerToys 公开 Issues 筛选，刻意包含同组件的困难负例。按参考主题划分开发集和测试集，比较同一组件内的反馈对。开发集有 26 对、4 个正例。测试集有 110 对、22 个正例。TF-IDF 的词表只在开发集拟合。两个方法都在开发集选择最大化 F1 的阈值，同分时取更高阈值。两者的输入都是相同的标题和摘录。
+Two issues can share a theme when they concern the same feature, a sufficiently similar trigger, and the same user-visible problem, so one verification step can address both. Broad reports or issues with distinguishable outcomes get separate themes. One reviewer labeled the issues using titles and public reports.
 
-## 结果
+The PowerToys snapshot includes challenging non-matches from the same product area. Issues are split by reference theme into development and test sets, and each method compares issue pairs within the same area. The development set contains 26 pairs and 4 matches. The test set contains 110 pairs and 22 matches. TF-IDF fits its vocabulary on development data. Each method uses the threshold with the highest development F1, with ties resolved in favor of the higher threshold. Both methods use the same titles and excerpts.
 
-| 方法 | 阈值 | 正确匹配 | 误合并 | 漏合并 | 精确率 | 召回率 | F1 | 平均精确率 |
+## Test results
+
+| Method | Threshold | Correct matches | False merges | Missed matches | Precision | Recall | F1 | Average precision |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 字符 n-gram TF-IDF | 0.26 | 15 | 46 | 7 | 24.6% | 68.2% | 36.1% | 36.9% |
+| Character n-gram TF-IDF | 0.26 | 15 | 46 | 7 | 24.6% | 68.2% | 36.1% | 36.9% |
 | MiniLM | 0.50 | 16 | 42 | 6 | 27.6% | 72.7% | 40.0% | 52.8% |
 
-平均精确率反映整张候选列表的排序表现。精确率、召回率和 F1 使用表中的固定阈值。数据量小、选样有意覆盖难例，公开 Issue 也只代表部分实际用户。结果适用于此快照和标注口径。
+Average precision summarizes the ranking of candidate pairs. Precision, recall, and F1 use the fixed thresholds in the table. The results describe this small, deliberately selected snapshot and its reference labels. Public issues represent only part of the user base.
 
-## 相似度阈值敏感度
+## Sensitivity to the similarity threshold
 
-对 44 条测试反馈中的同模块配对，保留达到阈值的 MiniLM 相似边，再以连通分量形成主题。单条反馈也计为一个聚类。用最终同簇的反馈对计算指标，传递合并产生的反馈对也纳入计算。这里的口径与上表直接比较相似边的口径不同。阈值面板用于比较策略，审核队列继续使用开发集选出的阈值。
+For the 44 test issues, MiniLM connects same-area pairs that meet the threshold and forms themes from the resulting connected components. The cluster count includes singletons. Metrics include every pair in a final cluster, including connections formed indirectly through another issue. The test-results table above counts only direct predictions. The evaluation slider explores thresholds while the review queue uses the threshold selected on development data.
 
-| 阈值 | 聚类数 | 精确率 | 召回率 | 误合并 | 漏合并 |
+| Threshold | Clusters | Precision | Recall | False merges | Missed matches |
 | ---: | ---: | ---: | ---: | ---: | ---: |
 | 0.65 | 26 | 32.6% | 63.6% | 29 | 8 |
 | 0.75 | 38 | 88.9% | 36.4% | 1 | 14 |
 | 0.85 | 43 | 100.0% | 4.5% | 0 | 21 |
 
-0.85 下只有一对被归到同一簇，100% 精确率来自这一对。若某个阈值没有预测匹配对，精确率记为 0。
+At 0.85, the model grouped only one pair and that pair was correct. If a threshold predicts zero matches, precision is recorded as zero.
 
-## 错例与界面处理
+## Error examples and review controls
 
-- **误合并，0.773。** 两条反馈同属 PowerRename 格式化。一条涉及扩展名被修改，一条涉及无效路径前缀被丢弃。审核页显示两个原帖，并允许保留为独立问题。[Issue #52209](https://github.com/microsoft/PowerToys/issues/52209) · [Issue #52208](https://github.com/microsoft/PowerToys/issues/52208)
-- **漏合并，0.059。** 英文和中文反馈都描述生成新配对密钥失败，英文 MiniLM 对该跨语言反馈对给出低分。演示参考主题保留两条来源。审核流程中可以搜索组件内的相关问题，发现候选列表之外的反馈。[Issue #51909](https://github.com/microsoft/PowerToys/issues/51909) · [Issue #51878](https://github.com/microsoft/PowerToys/issues/51878)
+- **False merge at 0.773.** Both reports discuss PowerRename formatting. One concerns an altered file extension, while the other concerns an invalid path prefix being discarded. The review screen shows both reports and lets the reviewer keep the issues separate. [Issue #52209](https://github.com/microsoft/PowerToys/issues/52209) · [Issue #52208](https://github.com/microsoft/PowerToys/issues/52208)
+- **Missed match at 0.059.** The English and Chinese reports both describe a failure to generate a new pairing key. English-language MiniLM assigned low similarity to this cross-language pair. The labeled demo theme retains both reports. Reviewers can search within the product area for related issues outside the candidate list. [Issue #51909](https://github.com/microsoft/PowerToys/issues/51909) · [Issue #51878](https://github.com/microsoft/PowerToys/issues/51878)
 
-## 生成式分析的评估口径
+## Evaluating generative analysis
 
-配置 API 后使用相同的输入、模型和参考主题运行单轮与分步脚本。`compare.mjs` 在测试集统计成对归并质量和带逐字引用的主题数。两版都用同一引用校验。MiniLM 表格和生成式报告的成对评估口径有区别，后者额外计入跨组件误合并。
+With API access, use the same inputs, model, and reference themes for single-pass and staged analysis. `compare.mjs` reports pairwise grouping quality and the number of themes with a verbatim quotation on the test set. Both paths run the same quotation checks. The generative comparison also counts false merges across product areas.
 
-人工复核时可用这组记录字段。逐条依据是原帖语义，会超出程序的字符串校验。
+Reviewers can record the fields below. The evidence support check requires reading the original issue and judging whether it supports the claim.
 
-| 主题 | 待判断结论 | 原帖编号 | 是否充分支持 | 审核修改 | 用时（秒） |
+| Theme | Claim to verify | Issue ID | Sufficient evidence | Reviewer edit | Time (seconds) |
 | --- | --- | --- | --- | --- | --- |
-| 示例记录 | 从托盘无法打开设置 | 52049 | 是 | 无 | |
-|  |  |  |  |  | |
+| Example | Settings fails to open from the tray | 52049 | Yes | None | |
 
-审核修改记录包括编辑摘要、拆分、合并、修改优先级。一次操作可能改变多个成对判断，操作次数和成对错误数分开记录。生成式模型的线上运行指标待接入 API 后记录。
+Reviewer edits include rewriting a summary, splitting or merging a theme, or changing priority. One edit can affect multiple pair labels, so intervention counts and pairwise errors are reported separately. Live generative evaluation results require a run with an API key.

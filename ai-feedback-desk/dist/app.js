@@ -18,7 +18,7 @@ const auditActions = ['activityEdit','activityConfirm','activityReopen','activit
 const clearFilters = {search: '', status: '', priority: '', area: '', sort: 'priority'};
 const state = {
   ...clearFilters, workspace: null, demo: true, selected: 'settings', dismissed: [], activity: [], corrections: [],
-  language: 'zh', reportLimit: 3, reportSelection: null, errorKind: '', hasDemoIssues: true, threshold: 0.65,
+  language: 'en', reportLimit: 3, reportSelection: null, errorKind: '', hasDemoIssues: true, threshold: 0.65,
 };
 let sample;
 let demoTopics;
@@ -31,7 +31,7 @@ let pendingImport = null;
 let readNumber = 0;
 
 try {
-  if (localStorage.getItem(localeKey) === 'en') state.language = 'en';
+  if (localStorage.getItem(localeKey) === 'zh') state.language = 'zh';
 } catch { /* Keep the default language when storage is unavailable. */ }
 
 const translations = {zh:translator('zh'), en:translator('en')};
