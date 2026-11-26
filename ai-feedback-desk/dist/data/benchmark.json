@@ -1,0 +1,515 @@
+{
+  "issues": 62,
+  "devIssues": 18,
+  "testIssues": 44,
+  "pairs": {
+    "dev": {
+      "total": 26,
+      "positive": 4
+    },
+    "test": {
+      "total": 110,
+      "positive": 22
+    }
+  },
+  "models": [
+    {
+      "name": "TF-IDF",
+      "threshold": 0.26,
+      "precision": 0.2459,
+      "recall": 0.6818,
+      "f1": 0.3614,
+      "averagePrecision": 0.3687,
+      "predictedPairs": 61,
+      "falsePositives": 46,
+      "falseNegatives": 7
+    },
+    {
+      "name": "MiniLM",
+      "threshold": 0.5,
+      "precision": 0.2759,
+      "recall": 0.7273,
+      "f1": 0.4,
+      "averagePrecision": 0.5276,
+      "predictedPairs": 58,
+      "falsePositives": 42,
+      "falseNegatives": 6
+    }
+  ],
+  "examples": [
+    {
+      "first": "52209",
+      "second": "52208",
+      "score": 0.773,
+      "kind": "false_merge"
+    },
+    {
+      "first": "52159",
+      "second": "51893",
+      "score": 0.729,
+      "kind": "false_merge"
+    },
+    {
+      "first": "51909",
+      "second": "51878",
+      "score": 0.059,
+      "kind": "missed_match"
+    },
+    {
+      "first": "51893",
+      "second": "51878",
+      "score": 0.088,
+      "kind": "missed_match"
+    }
+  ],
+  "thresholdSweep": [
+    {
+      "threshold": 0.4,
+      "clusters": 14,
+      "precision": 0.2466,
+      "recall": 0.8182,
+      "falseMerges": 55,
+      "missedMatches": 4
+    },
+    {
+      "threshold": 0.41,
+      "clusters": 15,
+      "precision": 0.2535,
+      "recall": 0.8182,
+      "falseMerges": 53,
+      "missedMatches": 4
+    },
+    {
+      "threshold": 0.42,
+      "clusters": 15,
+      "precision": 0.2535,
+      "recall": 0.8182,
+      "falseMerges": 53,
+      "missedMatches": 4
+    },
+    {
+      "threshold": 0.43,
+      "clusters": 16,
+      "precision": 0.2687,
+      "recall": 0.8182,
+      "falseMerges": 49,
+      "missedMatches": 4
+    },
+    {
+      "threshold": 0.44,
+      "clusters": 16,
+      "precision": 0.2687,
+      "recall": 0.8182,
+      "falseMerges": 49,
+      "missedMatches": 4
+    },
+    {
+      "threshold": 0.45,
+      "clusters": 16,
+      "precision": 0.2687,
+      "recall": 0.8182,
+      "falseMerges": 49,
+      "missedMatches": 4
+    },
+    {
+      "threshold": 0.46,
+      "clusters": 17,
+      "precision": 0.2576,
+      "recall": 0.7727,
+      "falseMerges": 49,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.47,
+      "clusters": 17,
+      "precision": 0.2576,
+      "recall": 0.7727,
+      "falseMerges": 49,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.48,
+      "clusters": 17,
+      "precision": 0.2576,
+      "recall": 0.7727,
+      "falseMerges": 49,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.49,
+      "clusters": 17,
+      "precision": 0.2576,
+      "recall": 0.7727,
+      "falseMerges": 49,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.5,
+      "clusters": 17,
+      "precision": 0.2576,
+      "recall": 0.7727,
+      "falseMerges": 49,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.51,
+      "clusters": 17,
+      "precision": 0.2576,
+      "recall": 0.7727,
+      "falseMerges": 49,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.52,
+      "clusters": 17,
+      "precision": 0.2576,
+      "recall": 0.7727,
+      "falseMerges": 49,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.53,
+      "clusters": 19,
+      "precision": 0.2833,
+      "recall": 0.7727,
+      "falseMerges": 43,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.54,
+      "clusters": 19,
+      "precision": 0.2833,
+      "recall": 0.7727,
+      "falseMerges": 43,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.55,
+      "clusters": 19,
+      "precision": 0.2833,
+      "recall": 0.7727,
+      "falseMerges": 43,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.56,
+      "clusters": 20,
+      "precision": 0.2931,
+      "recall": 0.7727,
+      "falseMerges": 41,
+      "missedMatches": 5
+    },
+    {
+      "threshold": 0.57,
+      "clusters": 21,
+      "precision": 0.2545,
+      "recall": 0.6364,
+      "falseMerges": 41,
+      "missedMatches": 8
+    },
+    {
+      "threshold": 0.58,
+      "clusters": 21,
+      "precision": 0.2545,
+      "recall": 0.6364,
+      "falseMerges": 41,
+      "missedMatches": 8
+    },
+    {
+      "threshold": 0.59,
+      "clusters": 21,
+      "precision": 0.2545,
+      "recall": 0.6364,
+      "falseMerges": 41,
+      "missedMatches": 8
+    },
+    {
+      "threshold": 0.6,
+      "clusters": 22,
+      "precision": 0.2692,
+      "recall": 0.6364,
+      "falseMerges": 38,
+      "missedMatches": 8
+    },
+    {
+      "threshold": 0.61,
+      "clusters": 24,
+      "precision": 0.3043,
+      "recall": 0.6364,
+      "falseMerges": 32,
+      "missedMatches": 8
+    },
+    {
+      "threshold": 0.62,
+      "clusters": 25,
+      "precision": 0.3182,
+      "recall": 0.6364,
+      "falseMerges": 30,
+      "missedMatches": 8
+    },
+    {
+      "threshold": 0.63,
+      "clusters": 26,
+      "precision": 0.3256,
+      "recall": 0.6364,
+      "falseMerges": 29,
+      "missedMatches": 8
+    },
+    {
+      "threshold": 0.64,
+      "clusters": 26,
+      "precision": 0.3256,
+      "recall": 0.6364,
+      "falseMerges": 29,
+      "missedMatches": 8
+    },
+    {
+      "threshold": 0.65,
+      "clusters": 26,
+      "precision": 0.3256,
+      "recall": 0.6364,
+      "falseMerges": 29,
+      "missedMatches": 8
+    },
+    {
+      "threshold": 0.66,
+      "clusters": 30,
+      "precision": 0.48,
+      "recall": 0.5455,
+      "falseMerges": 13,
+      "missedMatches": 10
+    },
+    {
+      "threshold": 0.67,
+      "clusters": 31,
+      "precision": 0.5714,
+      "recall": 0.5455,
+      "falseMerges": 9,
+      "missedMatches": 10
+    },
+    {
+      "threshold": 0.68,
+      "clusters": 31,
+      "precision": 0.5714,
+      "recall": 0.5455,
+      "falseMerges": 9,
+      "missedMatches": 10
+    },
+    {
+      "threshold": 0.69,
+      "clusters": 31,
+      "precision": 0.5714,
+      "recall": 0.5455,
+      "falseMerges": 9,
+      "missedMatches": 10
+    },
+    {
+      "threshold": 0.7,
+      "clusters": 33,
+      "precision": 0.6667,
+      "recall": 0.5455,
+      "falseMerges": 6,
+      "missedMatches": 10
+    },
+    {
+      "threshold": 0.71,
+      "clusters": 35,
+      "precision": 0.6,
+      "recall": 0.4091,
+      "falseMerges": 6,
+      "missedMatches": 13
+    },
+    {
+      "threshold": 0.72,
+      "clusters": 36,
+      "precision": 0.6429,
+      "recall": 0.4091,
+      "falseMerges": 5,
+      "missedMatches": 13
+    },
+    {
+      "threshold": 0.73,
+      "clusters": 37,
+      "precision": 0.9,
+      "recall": 0.4091,
+      "falseMerges": 1,
+      "missedMatches": 13
+    },
+    {
+      "threshold": 0.74,
+      "clusters": 37,
+      "precision": 0.9,
+      "recall": 0.4091,
+      "falseMerges": 1,
+      "missedMatches": 13
+    },
+    {
+      "threshold": 0.75,
+      "clusters": 38,
+      "precision": 0.8889,
+      "recall": 0.3636,
+      "falseMerges": 1,
+      "missedMatches": 14
+    },
+    {
+      "threshold": 0.76,
+      "clusters": 41,
+      "precision": 0.6667,
+      "recall": 0.0909,
+      "falseMerges": 1,
+      "missedMatches": 20
+    },
+    {
+      "threshold": 0.77,
+      "clusters": 41,
+      "precision": 0.6667,
+      "recall": 0.0909,
+      "falseMerges": 1,
+      "missedMatches": 20
+    },
+    {
+      "threshold": 0.78,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.79,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.8,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.81,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.82,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.83,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.84,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.85,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.86,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.87,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.88,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.89,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.9,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.91,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.92,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.93,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.94,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    },
+    {
+      "threshold": 0.95,
+      "clusters": 43,
+      "precision": 1.0,
+      "recall": 0.0455,
+      "falseMerges": 0,
+      "missedMatches": 21
+    }
+  ]
+}
