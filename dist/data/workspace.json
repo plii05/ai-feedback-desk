@@ -1,0 +1,619 @@
+{
+  "source": "PowerToys 公开 Issue · 演示快照",
+  "topics": [
+    {
+      "id": "settings",
+      "issueIds": [
+        "52364",
+        "52204",
+        "52049",
+        "52011"
+      ],
+      "priority": "P1",
+      "verified": true,
+      "title": "PowerToys 设置窗口无法打开",
+      "summary": "部分反馈描述 PowerToys 已在后台运行或显示托盘图标，但从托盘打开设置时没有出现窗口。",
+      "action": "优先复现从系统托盘启动设置页的路径，记录是否有进程、窗口和错误日志。",
+      "area": "PowerToys",
+      "citations": []
+    },
+    {
+      "id": "fancy-desktop",
+      "issueIds": [
+        "52357",
+        "52253",
+        "52229"
+      ],
+      "priority": "P1",
+      "verified": true,
+      "title": "虚拟桌面间的分区布局串用",
+      "summary": "多个虚拟桌面的独立布局在切换后被同一套布局覆盖，影响用户按桌面组织工作窗口。",
+      "action": "用两套明显不同的布局回归桌面切换与编辑器保存流程。",
+      "area": "FancyZones",
+      "citations": []
+    },
+    {
+      "id": "mwb-pairing",
+      "issueIds": [
+        "51914",
+        "51909",
+        "51893",
+        "51883",
+        "51878"
+      ],
+      "priority": "P1",
+      "verified": false,
+      "title": "无界鼠标无法创建新的配对密钥",
+      "summary": "用户在创建新配对密钥时遇到失败，导致另一台设备无法配对。部分报告提到更新后出现问题。",
+      "action": "复现更新前后创建新配对密钥的流程，并记录失败发生在哪一步。",
+      "area": "Mouse Without Borders",
+      "citations": []
+    },
+    {
+      "id": "cursor-win32",
+      "issueIds": [
+        "52265",
+        "52050"
+      ],
+      "priority": "P1",
+      "verified": false,
+      "title": "旧式应用中鼠标指针未恢复",
+      "summary": "有反馈称旧式 Windows 或 32 位应用在自动隐藏指针后没有正常恢复。",
+      "action": "在 32 位和 64 位 Win32 程序中分别检查空闲后移动鼠标的表现。",
+      "area": "CursorHide",
+      "citations": []
+    },
+    {
+      "id": "cursor-lock",
+      "issueIds": [
+        "52030",
+        "52178"
+      ],
+      "priority": "P1",
+      "verified": false,
+      "title": "进入锁屏界面后指针仍被隐藏",
+      "summary": "反馈描述锁定工作站或打开系统安全选项后，指针依然不可见。",
+      "action": "分别验证 Windows 锁屏和 Ctrl+Alt+Del 界面，并记录可用的恢复路径。",
+      "area": "CursorHide",
+      "citations": []
+    },
+    {
+      "id": "dock-autohide",
+      "issueIds": [
+        "52341",
+        "52118"
+      ],
+      "priority": "P2",
+      "verified": false,
+      "title": "Dock 自动隐藏与唤起表现异常",
+      "summary": "用户在启用自动隐藏后遇到 Dock 显隐、动画或位置异常。",
+      "action": "分别记录任务栏位置、Dock 位置和自动隐藏设置，拆分可复现的显示异常。",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "pinyin",
+      "issueIds": [
+        "51908",
+        "51906"
+      ],
+      "priority": "P2",
+      "verified": false,
+      "title": "两字母拼音首字母无法匹配中文应用",
+      "summary": "两条反馈描述相同的短查询限制，影响使用拼音首字母检索中文应用的用户。",
+      "action": "将两个字母的拼音查询加入搜索回归用例，对照完整拼音与其他短查询。",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "display-start",
+      "issueIds": [
+        "52280",
+        "52025"
+      ],
+      "priority": "P1",
+      "verified": false,
+      "title": "开机时 PowerDisplay 启动失败",
+      "summary": "反馈称系统启动后 PowerDisplay 无法正常启用。",
+      "action": "从冷启动复测并确认状态与手动启动是否不同。",
+      "area": "PowerDisplay",
+      "citations": []
+    },
+    {
+      "id": "display-detect",
+      "issueIds": [
+        "52142",
+        "52127"
+      ],
+      "priority": "P1",
+      "verified": false,
+      "title": "PowerDisplay 找不到外接显示器",
+      "summary": "外接显示器在 Windows 中可用，但有用户报告 PowerDisplay 无法检测。",
+      "action": "补充 HDMI 直连与 KVM 场景的识别矩阵。",
+      "area": "PowerDisplay",
+      "citations": []
+    },
+    {
+      "id": "cmdpal-start",
+      "issueIds": [
+        "52006",
+        "51949"
+      ],
+      "priority": "P1",
+      "verified": false,
+      "title": "更新后 Command Palette 无法启动",
+      "summary": "有报告描述更新或安装后命令面板无法启动，部分场景出现进程崩溃。",
+      "action": "分开记录从主窗口与任务栏启动的表现，确认版本与 Windows 配置。",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "fancy-persist",
+      "issueIds": [
+        "52336"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "Fancy Zones no longer persists settings",
+      "summary": "",
+      "action": "",
+      "area": "FancyZones",
+      "citations": []
+    },
+    {
+      "id": "fancy-restore",
+      "issueIds": [
+        "52245"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "Fancy Zones does not restore windows position correctly",
+      "summary": "",
+      "action": "",
+      "area": "FancyZones",
+      "citations": []
+    },
+    {
+      "id": "fancy-logon",
+      "issueIds": [
+        "52185"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[FancyZones] At logon a display with a 0x0 work area is skipped (\"Layout initialization: invalid work area\") and only recovers on a later display change",
+      "summary": "",
+      "action": "",
+      "area": "FancyZones",
+      "citations": []
+    },
+    {
+      "id": "fancy-monitor",
+      "issueIds": [
+        "52070"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[FancyZones] Identical monitors get the same serial number, so layouts swap or reset",
+      "summary": "",
+      "action": "",
+      "area": "FancyZones",
+      "citations": []
+    },
+    {
+      "id": "fancy-wake",
+      "issueIds": [
+        "51999"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "当我的计算机从休眠中唤醒后，FancyZones 中 “将新创建的窗口移动到上一个已知区域” 的选项不起作用了",
+      "summary": "",
+      "action": "",
+      "area": "FancyZones",
+      "citations": []
+    },
+    {
+      "id": "mwb-connect",
+      "issueIds": [
+        "52159"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[Mouse Without Borders] Can't connect to PC",
+      "summary": "",
+      "action": "",
+      "area": "Mouse Without Borders",
+      "citations": []
+    },
+    {
+      "id": "mwb-direction",
+      "issueIds": [
+        "52091"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "Mouse without borders working only from computer A to B, but not from B to A",
+      "summary": "",
+      "action": "",
+      "area": "Mouse Without Borders",
+      "citations": []
+    },
+    {
+      "id": "mwb-three",
+      "issueIds": [
+        "52299"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[Mouse Without Borders] v0.102.3101: Three-PC pairing and bidirectional control regression",
+      "summary": "",
+      "action": "",
+      "area": "Mouse Without Borders",
+      "citations": []
+    },
+    {
+      "id": "mwb-drop",
+      "issueIds": [
+        "52154"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "Mouse Without Borders keeps dropping its connection automatically, which stops the mouse cursor from moving seamlessly across the two devices.",
+      "summary": "",
+      "action": "",
+      "area": "Mouse Without Borders",
+      "citations": []
+    },
+    {
+      "id": "cursor-process",
+      "issueIds": [
+        "52361"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[CursorHide] Pointer stays hidden after PowerToys is force-closed, until you type again",
+      "summary": "",
+      "action": "",
+      "area": "CursorHide",
+      "citations": []
+    },
+    {
+      "id": "cursor-busy",
+      "issueIds": [
+        "52053"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "CursorHide doesn't always restore mouse cursor after moving mouse.",
+      "summary": "",
+      "action": "",
+      "area": "CursorHide",
+      "citations": []
+    },
+    {
+      "id": "cursor-elevated",
+      "issueIds": [
+        "52056"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "CursorHide doesn't show cursor when switching to app running as administrator",
+      "summary": "",
+      "action": "",
+      "area": "CursorHide",
+      "citations": []
+    },
+    {
+      "id": "cursor-uac",
+      "issueIds": [
+        "52149"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "CursorHide bug",
+      "summary": "",
+      "action": "",
+      "area": "CursorHide",
+      "citations": []
+    },
+    {
+      "id": "dock-edge",
+      "issueIds": [
+        "52259"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "command pallete dock lifts off the bottom edge of the screen",
+      "summary": "",
+      "action": "",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "dock-monitor",
+      "issueIds": [
+        "51978"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[Command Palette] Dock disappears after external monitor connection and monitor identification changes",
+      "summary": "",
+      "action": "",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "dock-crash",
+      "issueIds": [
+        "51986"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[Command Pallet dock] Icon mess up on dual monitor and then crash",
+      "summary": "",
+      "action": "",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "dock-empty",
+      "issueIds": [
+        "52157"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "Command Palette Dock is currently an empty bar on the top of my screen",
+      "summary": "",
+      "action": "",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "cmdpal-writes",
+      "issueIds": [
+        "52282"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "CmdPal shows Gigabytes of \"writes\" even when not used",
+      "summary": "",
+      "action": "",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "cmdpal-memory",
+      "issueIds": [
+        "52132"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "CmdPal: Passing an entire image as an icon causes a massive memory leak",
+      "summary": "",
+      "action": "",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "display-wake",
+      "issueIds": [
+        "52228"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "Slider Brightness not reapplied to monitor on wake from auto screen off",
+      "summary": "",
+      "action": "",
+      "area": "PowerDisplay",
+      "citations": []
+    },
+    {
+      "id": "display-source",
+      "issueIds": [
+        "51976"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[PowerDisplay][Bug] Changing monitor input source via menu options does not switch the active input",
+      "summary": "",
+      "action": "",
+      "area": "PowerDisplay",
+      "citations": []
+    },
+    {
+      "id": "cmdpal-empty",
+      "issueIds": [
+        "52217"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "CmdPal window completely empty",
+      "summary": "",
+      "action": "",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "peek-3mf",
+      "issueIds": [
+        "52308"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[Peek Utility] Add Support for .3mf Files",
+      "summary": "",
+      "action": "",
+      "area": "Peek",
+      "citations": []
+    },
+    {
+      "id": "explorer-3mf",
+      "issueIds": [
+        "52289"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "3MF Thumbnail Preview Support",
+      "summary": "",
+      "action": "",
+      "area": "Explorer Add-ons",
+      "citations": []
+    },
+    {
+      "id": "peek-spinner",
+      "issueIds": [
+        "52067"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[Peek] Regression: Home view opens blank preview with endless spinner and \"Search in Microsoft Store\" (0.102.3101.0)",
+      "summary": "",
+      "action": "",
+      "area": "Peek",
+      "citations": []
+    },
+    {
+      "id": "peek-black",
+      "issueIds": [
+        "52047"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[Peek] Window flashes black when opening",
+      "summary": "",
+      "action": "",
+      "area": "Peek",
+      "citations": []
+    },
+    {
+      "id": "peek-stale",
+      "issueIds": [
+        "52046"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[Peek] Previous file's content flashes briefly when opening a new preview",
+      "summary": "",
+      "action": "",
+      "area": "Peek",
+      "citations": []
+    },
+    {
+      "id": "rename-unicode",
+      "issueIds": [
+        "52211"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[PowerRename] Case-formatting mishandles supplementary Unicode letters and context-sensitive casing",
+      "summary": "",
+      "action": "",
+      "area": "PowerRename",
+      "citations": []
+    },
+    {
+      "id": "rename-space",
+      "issueIds": [
+        "52210"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[PowerRename] Formatting-only operations remove existing whitespace",
+      "summary": "",
+      "action": "",
+      "area": "PowerRename",
+      "citations": []
+    },
+    {
+      "id": "rename-ext",
+      "issueIds": [
+        "52209"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[PowerRename] Filename-only formatting changes the original extension",
+      "summary": "",
+      "action": "",
+      "area": "PowerRename",
+      "citations": []
+    },
+    {
+      "id": "rename-path",
+      "issueIds": [
+        "52208"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[PowerRename] Case formatting silently discards invalid path prefixes",
+      "summary": "",
+      "action": "",
+      "area": "PowerRename",
+      "citations": []
+    },
+    {
+      "id": "calc-locale",
+      "issueIds": [
+        "52368"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "Calculator extension is bad at non standard US regional formatting (Extra 0s + Formatting issues)",
+      "summary": "",
+      "action": "",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "calc-expression",
+      "issueIds": [
+        "52281"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "The calculator is broken",
+      "summary": "",
+      "action": "",
+      "area": "PowerToys Run",
+      "citations": []
+    },
+    {
+      "id": "calc-large",
+      "issueIds": [
+        "52180"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "Teach Run's Calculator plugin to properly output large numbers",
+      "summary": "",
+      "action": "",
+      "area": "PowerToys Run",
+      "citations": []
+    },
+    {
+      "id": "cmdpal-time",
+      "issueIds": [
+        "52316"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "Command Palette Clock - Display Time Zone for Custom Clocks",
+      "summary": "",
+      "action": "",
+      "area": "Command Palette",
+      "citations": []
+    },
+    {
+      "id": "display-rotate",
+      "issueIds": [
+        "52305"
+      ],
+      "priority": "P3",
+      "verified": false,
+      "title": "[PowerDisplay / Keyboard Manager] Custom shortcut keys to rotate a specific chosen monitor (built-in or external)",
+      "summary": "",
+      "action": "",
+      "area": "PowerDisplay",
+      "citations": []
+    }
+  ]
+}
