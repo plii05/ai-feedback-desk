@@ -4,6 +4,8 @@
 
 Feedback Desk is a bilingual AI feedback workspace for product managers and product operations teams. Review similar issues, set follow-up priorities, and turn confirmed themes into a briefing with links to the original reports. The demo uses 62 public Microsoft PowerToys issues.
 
+![Feedback Desk review workspace showing the issue queue, a confirmed theme, its priority score, and source evidence](docs/screenshots/feedback-review.jpg)
+
 ## Run the demo
 
 ```bash

@@ -1,0 +1,9 @@
+.env
+.env.*
+.models/
+.venv/
+__pycache__/
+*.pyc
+analysis.json
+baseline.json
+structured.json
